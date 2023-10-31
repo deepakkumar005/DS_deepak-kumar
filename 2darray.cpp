@@ -1,40 +1,39 @@
-
 #include <iostream>
 using namespace std;
 
-int main() {
-    const int numStudents = 3;  
-    const int numSubjects = 5;  
+int main()
+{
+    int marks[5][5];
+    int total[5] = {0};
+    float average[5] = {0};
 
-    int marks[numStudents][numSubjects];
-
-    
-    for (int i = 0; i < numStudents; i++) {
-        cout << "Enter marks for Student " << i + 1 << " in 5 subjects: ";
-        for (int j = 0; j < numSubjects; j++) {
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
             cin >> marks[i][j];
-        }
-    }
-
-    
-    int total[numStudents] = {0};
-    double subjectAverage[numSubjects] = {0.0};
-
-    for (int i = 0; i < numStudents; i++) {
-        for (int j = 0; j < numSubjects; j++) {
             total[i] += marks[i][j];
-            subjectAverage[j] += marks[i][j];
         }
+
     }
 
-   
-    for (int i = 0; i < numStudents; i++) {
-        cout << "Total marks for Student " << i + 1 << ": " << total[i] << endl;
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "Total marks of student " << i + 1 << ": " << total[i] << endl;
     }
 
-    for (int j = 0; j < numSubjects; j++) {
-        subjectAverage[j] /= numStudents;
-        cout << "Average marks for Subject " << j + 1 << ": " << subjectAverage[j] << endl;
+    for (int j = 0; j < 5; j++)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            average[j] += marks[i][j];
+        }
+        average[j] /= 5;
+    }
+
+    for (int j = 0; j < 5; j++)
+    {
+        cout << "Average marks of subject " << j + 1 << ": " << average[j] << endl;
     }
 
     return 0;
