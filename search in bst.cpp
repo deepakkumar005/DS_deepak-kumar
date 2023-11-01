@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>   //**56
 #include <queue>
 #include <bits/stdc++.h>
 #include <vector>
@@ -58,6 +58,15 @@ void levelorder(node* root){
         }
     }
 }
+void takeinput(node* &root){
+    int data ;
+    cin >> data;
+    while(data != -1){
+        root = insertintobst(root, data);
+        cin >> data;
+    }
+}
+
 
 bool search(node* root, int target) {
     if (root == nullptr) {
